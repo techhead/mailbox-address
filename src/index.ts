@@ -66,6 +66,12 @@ const nodeVer = typeof process !== "undefined" && process.versions?.node;
 
 /**
  * Webpack require hack.
+ * https://webpack.js.org/api/module-variables/#__webpack_require__-webpack-specific
+ */
+declare var __webpack_require__: any;
+
+/**
+ * Webpack require hack.
  * https://webpack.js.org/api/module-variables/#__non_webpack_require__-webpack-specific
  */
 declare var __non_webpack_require__: typeof require;
@@ -73,15 +79,16 @@ declare var __non_webpack_require__: typeof require;
 /**
  * Alias to NodeJS require() or undefined.
  */
-const requireNode = nodeVer
-  ? (typeof __non_webpack_require__ === FN && __non_webpack_require__) ||
-    this?.require
+const nodeRequire = nodeVer
+  ? typeof __webpack_require__ === "function"
+    ? __non_webpack_require__
+    : require
   : undefined;
 
 /**
  * Reference to the NodeJS "url" module (if NodeJS environment).
  */
-const url = requireNode && (requireNode("url") as typeof urlModule);
+const url = nodeRequire && (nodeRequire("url") as typeof urlModule);
 
 /**
  * WHATWG URL Class
