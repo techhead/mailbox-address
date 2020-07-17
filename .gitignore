@@ -4,5 +4,8 @@
 # Compiled TypeScript
 /dist/
 
+# Test coverage
+/coverage/
+
 # Package dependencies
 /node_modules/

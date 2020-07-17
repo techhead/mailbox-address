@@ -14,7 +14,7 @@
     "compile:esm": "tsc -t ESNEXT -p tsconfig.types.json",
     "compile:umd": "webpack -p",
     "docs": "typedoc",
-    "test": "jest"
+    "test": "jest --coverage"
   },
   "repository": {
     "type": "git",

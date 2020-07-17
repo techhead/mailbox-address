@@ -161,6 +161,8 @@ describe("Test address normalization", () => {
     '"{my.name}"@example.com': "{my.name}@example.com",
     '"my name"@EXAMPLE.com': '"my name"@example.com',
     '"my\\!name\\=cool"@eXaMple.com': "my!name=cool@example.com",
+    '"\\j\\u\\s\\t\\\\\\ \\"\\n\\o"@eXaMple.com':
+      '"just\\\\ \\"no"@example.com',
   }).forEach(([mailbox, normal]) => {
     test(`${mailbox} => ${normal}`, () => {
       expect(validate(mailbox, MailboxType.ALLOW_QUOTED_STRING)).toBe(normal);
