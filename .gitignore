@@ -1,0 +1,8 @@
+# Mac OS
+.DS_Store
+
+# Compiled TypeScript
+/dist/
+
+# Package dependencies
+/node_modules/

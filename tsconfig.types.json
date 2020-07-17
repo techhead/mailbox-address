@@ -1,0 +1,8 @@
+{
+  "extends": "./tsconfig",
+  "compilerOptions": {
+    "declaration": true,                      /* Generates corresponding '.d.ts' file. */
+    "declarationDir": "./dist/types",
+    "declarationMap": true,                   /* Generates a sourcemap for each corresponding '.d.ts' file. */
+  },
+}
