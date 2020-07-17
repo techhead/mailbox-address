@@ -11,7 +11,7 @@ module.exports = {
     ],
   },
   node: false, // Don't polyfill for Node.
-  devtool: 'source-map',
+  devtool: 'nosources-source-map',
   output: {
     path: path.resolve(__dirname, 'dist/umd'),
     filename: 'index.js',
