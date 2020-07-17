@@ -66,6 +66,12 @@
     "skipLibCheck": true,                     /* Skip type checking of declaration files. */
     "forceConsistentCasingInFileNames": true  /* Disallow inconsistently-cased references to the same file. */
   },
+  "typedocOptions": {
+    "out": "docs",
+    "mode": "library",
+    "excludeNotExported": true,
+    "readme": "none"
+  },
   "files": [
     "./src/index.ts"
   ]
