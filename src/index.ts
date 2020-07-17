@@ -102,13 +102,15 @@ const supportsURLConstructor = URLClass && normalizeHost("o.co") === "o.co";
 const supportsUnicodeNormalization = typeof "".normalize === FN;
 
 /**
- * Not IE.
- * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode#Browser_compatibility
+ * True if this environment supports the unicode ('u') flag for RegExp.
+ *
+ * See [Browser compatibility](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode#Browser_compatibility).
+ * (Hint: Not IE.)
+ *
+ * https://mathiasbynens.be/notes/es6-unicode-regex
  */
-const supportsUnicodeRegEx = (() => {
+export const supportsUnicodeRegExp = (() => {
   try {
-    // Match 😬
-    //return /^\u{1f62c}$/u.test("\ud83d\ude2c");
     return new RegExp("^\\u{1f62c}$", "u").test("\ud83d\ude2c");
   } catch (e) {
     return false;
@@ -363,9 +365,12 @@ const addressLiteralRE =
   ")\\]";
 
 /**
- * Return a regular expression (RegExp) pattern for validating/matching
- * an email address (mailbox) of the given type.
- * @param type RFC5321 mailbox by default
+ * Build a regular expression (RegExp) pattern string for validating/matching
+ * an email mailbox address of the given type. Will attempt to use a unicode-
+ * aware pattern for SMTPUTF8 addresses if the environment supports it.
+ * See [[supportsUnicodeRegExp]].
+ * @param type
+ * @returns The regular expression pattern string.
  */
 export function buildPattern(type = MailboxType.RFC5321) {
   /*
@@ -477,7 +482,7 @@ function quotedStringRE(type: number) {
  */
 function charClass(def: string, type: number) {
   return type & MailboxType.SMTPUTF8
-    ? supportsUnicodeRegEx
+    ? supportsUnicodeRegExp
       ? def.slice(0, -1) + unicodeNonAscii.slice(1)
       : def.slice(0, -1) + allNonAscii.slice(1)
     : def;
@@ -488,15 +493,16 @@ const regExpCache: RegExp[] = [];
 function asRegExp(type: number, fn: (type: number) => string = buildPattern) {
   const pattern = "^" + fn(type) + "$";
   const flags =
-    type & MailboxType.SMTPUTF8 && supportsUnicodeRegEx ? "u" : undefined;
+    type & MailboxType.SMTPUTF8 && supportsUnicodeRegExp ? "u" : undefined;
   return new RegExp(pattern, flags);
 }
 
 /**
- * Validate syntax for a RFC 5321/6531(SMTPUTF8) mailbox.
- * @param mailbox The RFC 5321/6531(SMTPUTF8) mailbox address.
- * @param type MailboxType flag. Default is RFC5321.
- * @returns The normalized, validated mailbox address or false on failure.
+ * Validate syntax for a RFC 5321/6531(SMTPUTF8) mailbox address.
+ * @param mailbox The mailbox address.
+ * @param type
+ * @returns The normalized, validated mailbox address string
+ *          or false on failure.
  */
 export function validate(mailbox: string, type = MailboxType.RFC5321) {
   if (!regExpCache[type]) {
