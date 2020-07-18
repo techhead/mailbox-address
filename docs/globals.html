@@ -61,67 +61,131 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<div class="tsd-panel tsd-typography">
-				<a href="#mailbox-address" id="mailbox-address" style="color: inherit; text-decoration: none;">
-					<h1>mailbox-address</h1>
-				</a>
-				<p>Validate syntax for a RFC 5321/6531(SMTPUTF8) email mailbox address.</p>
-				<a href="#installing" id="installing" style="color: inherit; text-decoration: none;">
-					<h2>Installing</h2>
-				</a>
-				<p>For the latest stable version:</p>
-				<pre><code class="language-bash">npm install mailbox-address</code></pre>
-				<a href="#usage-in-typescript" id="usage-in-typescript" style="color: inherit; text-decoration: none;">
-					<h2>Usage in Typescript</h2>
-				</a>
-				<pre><code class="language-ts"><span class="hljs-keyword">import</span> { validate, MailboxType } <span class="hljs-keyword">from</span> <span class="hljs-string">"mailbox-address"</span>;
-
-<span class="hljs-keyword">const</span> address = <span class="hljs-string">"Διεθνές@Greek.com"</span>;
-<span class="hljs-keyword">const</span> valid = mailboxAddress.validate(address, MailboxType.SMTPUTF8);
-<span class="hljs-keyword">if</span> (valid) {
-  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`<span class="hljs-subst">${valid}</span> is a valid internationalized (SMTPUTF8) email mailbox address.`</span>);
-} <span class="hljs-keyword">else</span> {
-  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`<span class="hljs-subst">${address}</span> is NOT a valid internationalized (SMTPUTF8) email mailbox address.`</span>);
-}</code></pre>
-				<a href="#usage-in-the-browser-via-unpkg" id="usage-in-the-browser-via-unpkg" style="color: inherit; text-decoration: none;">
-					<h2>Usage in the browser via <a href="https://unpkg.com/">UNPKG</a></h2>
-				</a>
-				<pre><code class="language-html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">html</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"utf-8"</span>/&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://unpkg.com/mailbox-address"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Try playing with <span class="hljs-tag">&lt;<span class="hljs-name">code</span>&gt;</span>mailboxAddress<span class="hljs-tag">&lt;/<span class="hljs-name">code</span>&gt;</span> in the console.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">b</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"address"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span> is a <span class="hljs-tag">&lt;<span class="hljs-name">b</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"valid"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span> internationalized (SMTPUTF8) email mailbox address.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
-<span class="hljs-keyword">const</span> SMTPUTF8 = <span class="hljs-number">1</span>;
-<span class="hljs-keyword">const</span> address = <span class="hljs-string">"Διεθνές@Greek.com"</span>;
-<span class="hljs-keyword">const</span> valid = mailboxAddress.validate(address, SMTPUTF8);
-<span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'address'</span>).innerText = valid || address;
-<span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'valid'</span>).innerText = valid ? <span class="hljs-string">'valid'</span> : <span class="hljs-string">'invalid'</span>;
-</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre>
-				<a href="#api-docs" id="api-docs" style="color: inherit; text-decoration: none;">
-					<h2>API docs</h2>
-				</a>
-				<p><code>validate(mailbox: string, type?: MailboxType): string | false</code></p>
-				<ul>
-					<li><a href="http://techhead.biz/mailbox-address/index.html#validate">validate</a></li>
-					<li><a href="http://techhead.biz/mailbox-address/enums/mailboxtype.html">MailboxType</a></li>
-				</ul>
-				<a href="#license" id="license" style="color: inherit; text-decoration: none;">
-					<h2>License</h2>
-				</a>
-				<p>MIT</p>
-			</div>
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section ">
+							<h3>Enumerations</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-enum"><a href="enums/mailboxtype.html" class="tsd-kind-icon">Mailbox<wbr>Type</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Variables</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-variable"><a href="globals.html#supportsunicoderegexp" class="tsd-kind-icon">supports<wbr>Unicode<wbr>Reg<wbr>Exp</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Functions</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-function"><a href="globals.html#buildpattern" class="tsd-kind-icon">build<wbr>Pattern</a></li>
+								<li class="tsd-kind-function"><a href="globals.html#validate" class="tsd-kind-icon">validate</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Variables</h2>
+				<section class="tsd-panel tsd-member tsd-kind-variable">
+					<a name="supportsunicoderegexp" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> supports<wbr>Unicode<wbr>Reg<wbr>Exp</h3>
+					<div class="tsd-signature tsd-kind-icon">supports<wbr>Unicode<wbr>Reg<wbr>Exp<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> = (() &#x3D;&gt; {try {return new RegExp(&quot;^\\u{1f62c}$&quot;, &quot;u&quot;).test(&quot;\ud83d\ude2c&quot;);} catch (e) {return false;}})()</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/techhead/mailbox-address/blob/6b7a875/src/index.ts#L122">index.ts:122</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>True if this environment supports the unicode (&#39;u&#39;) flag for RegExp.</p>
+						</div>
+						<p><strong>Gotcha</strong>: When using in the browser, ensure that the <code>&lt;script&gt;</code> is loaded
+						in the UTF-8 <code>charset</code> for this constant to reflect the correct value.</p>
+						<p>See <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode#Browser_compatibility">Browser compatibility</a>.
+						(Hint: Not IE.)</p>
+						<p><a href="https://mathiasbynens.be/notes/es6-unicode-regex">https://mathiasbynens.be/notes/es6-unicode-regex</a></p>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Functions</h2>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="buildpattern" class="tsd-anchor"></a>
+					<h3>build<wbr>Pattern</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">build<wbr>Pattern<span class="tsd-signature-symbol">(</span>type<span class="tsd-signature-symbol">?: </span><a href="enums/mailboxtype.html" class="tsd-signature-type">MailboxType</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/techhead/mailbox-address/blob/6b7a875/src/index.ts#L385">index.ts:385</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Build a regular expression (RegExp) pattern string for validating/matching
+										an email mailbox address of the given type. Will attempt to use a unicode-
+										aware pattern for SMTPUTF8 addresses if the environment supports it.
+									See <a href="globals.html#supportsunicoderegexp">supportsUnicodeRegExp</a>.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> type: <a href="enums/mailboxtype.html" class="tsd-signature-type">MailboxType</a><span class="tsd-signature-symbol"> = MailboxType.RFC5321</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+							<p>The regular expression pattern string.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="validate" class="tsd-anchor"></a>
+					<h3>validate</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">validate<span class="tsd-signature-symbol">(</span>mailbox<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, type<span class="tsd-signature-symbol">?: </span><a href="enums/mailboxtype.html" class="tsd-signature-type">MailboxType</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/techhead/mailbox-address/blob/6b7a875/src/index.ts#L517">index.ts:517</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Validate syntax for a RFC 5321/6531(SMTPUTF8) mailbox address.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>mailbox: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The mailbox address.</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> type: <a href="enums/mailboxtype.html" class="tsd-signature-type">MailboxType</a><span class="tsd-signature-symbol"> = MailboxType.RFC5321</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span></h4>
+							<p>The normalized, validated mailbox address string
+							or false on failure.</p>
+						</li>
+					</ul>
+				</section>
+			</section>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 			<nav class="tsd-navigation primary">
 				<ul>
-					<li class="globals  ">
+					<li class="globals current ">
 						<a href="globals.html"><em>Globals</em></a>
 					</li>
 				</ul>

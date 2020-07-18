@@ -111,6 +111,9 @@ const supportsUnicodeNormalization = typeof "".normalize === FN;
 /**
  * True if this environment supports the unicode ('u') flag for RegExp.
  *
+ * **Gotcha**: When using in the browser, ensure that the `<script>` is loaded
+ * in the UTF-8 `charset` for this constant to reflect the correct value.
+ *
  * See [Browser compatibility](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode#Browser_compatibility).
  * (Hint: Not IE.)
  *

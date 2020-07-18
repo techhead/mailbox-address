@@ -69,8 +69,7 @@
   "typedocOptions": {
     "out": "docs",
     "mode": "library",
-    "excludeNotExported": true,
-    "readme": "none"
+    "excludeNotExported": true
   },
   "files": [
     "./src/index.ts"
