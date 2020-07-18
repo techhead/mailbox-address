@@ -49,7 +49,7 @@ document.getElementById('valid').innerText = valid ? 'valid' : 'invalid';
 ## API docs
 
 `validate(mailbox: string, type?: MailboxType): string | false`
-* [validate](http://techhead.biz/mailbox-address/index.html#validate)
+* [validate](http://techhead.biz/mailbox-address/globals.html#validate)
 * [MailboxType](http://techhead.biz/mailbox-address/enums/mailboxtype.html)
 
 ## License
