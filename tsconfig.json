@@ -67,9 +67,8 @@
     "forceConsistentCasingInFileNames": true  /* Disallow inconsistently-cased references to the same file. */
   },
   "typedocOptions": {
+    "entryPoints": ["src/index.ts"],
     "out": "docs",
-    "mode": "library",
-    "excludeNotExported": true
   },
   "files": [
     "./src/index.ts"
