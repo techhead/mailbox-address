@@ -1,6 +1,6 @@
 {
   "name": "mailbox-address",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Validate syntax for a RFC 5321/6531(SMTPUTF8) email mailbox address.",
   "main": "dist/umd/index.js",
   "module": "dist/esm/index.js",
