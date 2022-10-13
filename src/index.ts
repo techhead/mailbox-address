@@ -378,7 +378,7 @@ const addressLiteralRE =
  * Build a regular expression (RegExp) pattern string for validating/matching
  * an email mailbox address of the given type. Will attempt to use a unicode-
  * aware pattern for SMTPUTF8 addresses if the environment supports it.
- * See [[supportsUnicodeRegExp]].
+ * @see {@link supportsUnicodeRegExp}
  * @param type
  * @returns The regular expression pattern string.
  */
